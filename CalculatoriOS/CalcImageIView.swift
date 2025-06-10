@@ -1,23 +1,23 @@
 //
-//  CalcButtonView.swift
+//  CalcImageIView.swift
 //  CalculatoriOS
 //
-//  Created by Bineta Diatta on 6/9/25.
+//  Created by Bineta Diatta on 6/10/25.
 //
 
 import SwiftUI
 
-struct CalcButtonView: View {
-    var buttonText = "1"
+struct CalcImageIView: View {
     var buttonColor = Color(hue: 1.0, saturation: 0, brightness: 0.283)
     var width:CGFloat = 70
-    var action: (CalcButtonView) -> Void = { _ in  }
+    var action: (CalcImageIView) -> Void = { _ in  }
     var mode: CalcMode = .notSet
+     var buttonText = "plus"
     var body: some View {
         Button(action: {
             action(self)
         }, label:{
-            Text(buttonText)
+            Image(systemName: buttonText)
                 .frame(width:width, height: 75, alignment: .center)
                 . background(buttonColor)
                 .clipShape(RoundedRectangle(cornerRadius: 15))
@@ -26,11 +26,8 @@ struct CalcButtonView: View {
 
     }
     
- 
 }
 
-
-
 #Preview {
-    CalcButtonView()
+    CalcImageIView()
 }

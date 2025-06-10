@@ -28,29 +28,28 @@ struct ButtonGrid: View {
                 CalcButtonView(buttonText: "1", action: numberPressed)
                 CalcButtonView(buttonText: "2",action: numberPressed)
                 CalcButtonView(buttonText: "3",action: numberPressed)
-                CalcButtonView(buttonText: "+", buttonColor: .orange, action: modePressed, mode: .addition)
+                CalcImageIView(buttonColor: .orange, action: modePressed, mode: .addition, buttonText: "plus")
             }
             GridRow{
                 CalcButtonView(buttonText: "4",action: numberPressed)
                 CalcButtonView(buttonText: "5",action: numberPressed)
                 CalcButtonView(buttonText: "6",action: numberPressed)
-                CalcButtonView(buttonText: "-", buttonColor: .orange, action: modePressed, mode: .subtraction          )}
+                CalcImageIView(buttonColor: .orange, action: modePressed, mode: .subtraction, buttonText: "minus" )}
             GridRow{
                 CalcButtonView(buttonText: "7", action: numberPressed)
                 CalcButtonView(buttonText: "8", action: numberPressed)
                 CalcButtonView(buttonText: "9", action: numberPressed)
-                CalcButtonView(buttonText: "x", buttonColor: .orange, action: modePressed, mode: .multiplication)
-            }
-            GridRow{
-                CalcButtonView(buttonText: "0", width: 147, action: numberPressed)
-                    .gridCellColumns(2)
-                CalcButtonView(buttonText: "C", buttonColor: .gray, action: clearPressed)
-                CalcButtonView(buttonText: "=", buttonColor: .orange, action: equalPressed)
-                
+                CalcImageIView(buttonColor: .orange, action: modePressed, mode: .subtraction, buttonText: "multiply" )}
+        GridRow{
+            CalcButtonView(buttonText: "0", width: 147, action: numberPressed)
+                .gridCellColumns(2)
+            CalcButtonView(buttonText: "C", buttonColor: .gray, action: clearPressed)
+            CalcButtonView(buttonText: "=", buttonColor: .orange, action: equalPressed)
+        
             }
         }
         .padding()
-    }
+}
     
     func numberPressed(button: CalcButtonView){
         if lastButtonWasMode {
@@ -71,7 +70,7 @@ struct ButtonGrid: View {
         
        
     }
-    func modePressed(button: CalcButtonView){
+    func modePressed(button: CalcImageIView){
         if currentMode != .notSet && !lastButtonWasMode{
             if currentMode == .addition{
                 savedInt += currentInt
